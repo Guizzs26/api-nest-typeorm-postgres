@@ -21,22 +21,10 @@ export class CoursesController {
     return this.courseService.findAll();
   }
 
-  // @Get()
-  // findAllWithRes(@Res() response) {
-  //   return response.status(200).json({
-  //     message: 'Enviando uma mensagem com o decoretor Res do express',
-  //   });
-  // }
-
   @Get(':id')
   listOne(@Param('id') id: number) {
     return this.courseService.findOne(+id);
   }
-
-  // @Get(':id/:name')
-  // listOneManyParams(@Param('id') id: number, @Param('name') name: string) {
-  //   return `Listando o curso com o id ${id} e nome ${name}`;
-  // }
 
   @Post()
   create(@Body() createCourseDTO: CreateCourseDTO) {
@@ -54,4 +42,16 @@ export class CoursesController {
   remove(@Param('id') id: number) {
     return this.courseService.remove(+id);
   }
+
+  // @Get()
+  // findAllWithRes(@Res() response) {
+  //   return response.status(200).json({
+  //     message: 'Enviando uma mensagem com o decoretor Res do express',
+  //   });
+  // }
+
+  // @Get(':id/:name')
+  // listOneManyParams(@Param('id') id: number, @Param('name') name: string) {
+  //   return `Listando o curso com o id ${id} e nome ${name}`;
+  // }
 }
