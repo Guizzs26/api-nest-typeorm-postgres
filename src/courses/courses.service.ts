@@ -1,8 +1,8 @@
 import {
-  HttpException,
-  HttpStatus,
   Injectable,
+  HttpException,
   NotFoundException,
+  HttpStatus,
 } from '@nestjs/common';
 import { Course } from './entities/course.entity';
 import { Tag } from './entities/entity.entity';
@@ -22,12 +22,15 @@ export class CoursesService {
   ) {}
 
   async findAll() {
-    return this.courseRepository.find();
+    return this.courseRepository.find({
+      relations: ['tags'],
+    });
   }
 
   async findOne(id: number) {
     const course = await this.courseRepository.findOne({
       where: { id },
+      relations: ['tags'],
     });
 
     if (!course) {
