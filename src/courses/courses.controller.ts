@@ -22,7 +22,7 @@ export class CoursesController {
   }
 
   @Get(':id')
-  listOne(@Param('id') id: number) {
+  listOne(@Param('id') id: string) {
     return this.courseService.findOne(id);
   }
 
@@ -32,26 +32,14 @@ export class CoursesController {
   }
 
   @Put(':id')
-  update(@Param('id') id: number, @Body() updateCourseDTO: UpdateCourseDTO) {
+  update(@Param('id') id: string, @Body() updateCourseDTO: UpdateCourseDTO) {
     return this.courseService.update(id, updateCourseDTO);
   }
 
   @HttpCode(204)
   // @HttpCode(HttpStatus.NO_CONTENT)
   @Delete(':id')
-  remove(@Param('id') id: number) {
+  remove(@Param('id') id: string) {
     return this.courseService.remove(id);
   }
-
-  // @Get()
-  // findAllWithRes(@Res() response) {
-  //   return response.status(200).json({
-  //     message: 'Enviando uma mensagem com o decoretor Res do express',
-  //   });
-  // }
-
-  // @Get(':id/:name')
-  // listOneManyParams(@Param('id') id: number, @Param('name') name: string) {
-  //   return `Listando o curso com o id ${id} e nome ${name}`;
-  // }
 }
