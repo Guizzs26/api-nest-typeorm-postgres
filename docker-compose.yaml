@@ -10,7 +10,7 @@ services:
     volumes:
       - .docker/dbdata:/var/lib/postgresql/data
     environment:
-      - POSTGRES_PASSWORD=docker
+      - POSTGRES_PASSWORD=12345
       - POSTGRES_DB=devtraining
 
   dbtest:
@@ -20,5 +20,5 @@ services:
     ports:
       - '5433:5432'
     environment:
-      - POSTGRES_PASSWORD=docker
+      - POSTGRES_PASSWORD=12345
       - POSTGRES_DB=devtraining

@@ -64,13 +64,13 @@ export class CoursesService {
 
     const course = await this.courseRepository.preload({
       ...updateCourseDTO,
+      id,
       tags,
     });
 
     if (!course) {
       throw new NotFoundException(`Course ID ${id} not found`);
     }
-
     return this.courseRepository.save(course);
   }
 
